@@ -26,6 +26,6 @@ public class TodoEntity extends AuditEntity {
 
     private LocalDateTime deadLine;
 
-    private LocalDateTime todoEnterTime;
+    private LocalDateTime todoEntrTime;
 
 }
