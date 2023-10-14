@@ -29,6 +29,11 @@ public class TodoEntity extends AuditEntity {
 
     private LocalDateTime todoEntrTime;
 
+    @PrePersist
+    public void updateDefaultValue() {
+        if (this.todoStus == null) this.todoStus = TodoStatus.CREATED;
+    }
+
     public void updateTodo(TodoUpdateDTO update) {
         if (update == null) return;
         if (update.getContent() != null) this.content = update.getContent();
