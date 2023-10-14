@@ -1,6 +1,6 @@
 package com.mytodo.api.todo.dto;
 
-import com.mytodo.api.constant.TodoConstant;
+import com.mytodo.api.todo.entity.constant.TodoStatus;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -9,12 +9,12 @@ import java.time.LocalDateTime;
 public class TodoDTO {
     private int todoId;
     private String content;
-    private TodoConstant todoStus;
+    private TodoStatus todoStus;
     private LocalDateTime todoEntrTime;
     private LocalDateTime deadLine;
 
     public boolean isDone() {
-        return TodoConstant.DONE == this.todoStus;
+        return TodoStatus.DONE == this.todoStus;
     }
 
 }

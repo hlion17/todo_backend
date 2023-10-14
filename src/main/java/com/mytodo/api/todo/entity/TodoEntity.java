@@ -1,7 +1,8 @@
 package com.mytodo.api.todo.entity;
 
 import com.mytodo.api.common.AuditEntity;
-import com.mytodo.api.constant.TodoConstant;
+import com.mytodo.api.todo.entity.constant.TodoStatus;
+import com.mytodo.api.todo.dto.TodoUpdateDTO;
 import lombok.*;
 
 import javax.persistence.*;
@@ -22,10 +23,15 @@ public class TodoEntity extends AuditEntity {
     private String content;
 
     @Enumerated(EnumType.STRING)
-    private TodoConstant todoStus;
+    private TodoStatus todoStus;
 
     private LocalDateTime deadLine;
 
     private LocalDateTime todoEntrTime;
 
+    public void updateTodo(TodoUpdateDTO update) {
+        if (update == null) return;
+        if (update.getContent() != null) this.content = update.getContent();
+        if (update.getTodoStus() != null) this.todoStus = update.getTodoStus();
+    }
 }
