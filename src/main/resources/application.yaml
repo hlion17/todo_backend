@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://svc.sel3.cloudtype.app:31297/todo_project
+    hikari:
+      username: root
+      password: root
+
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: create
+    database-platform: org.hibernate.dialect.MariaDBDialect
